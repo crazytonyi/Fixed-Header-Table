@@ -420,7 +420,7 @@
 		    tdWidths.push($(this).width());
 		});
 
-		firstTdChildrenSelector = 'tbody tr td:not(:nth-child(n+' + (settings.fixedColumns + 1) + '))';
+		firstTdChildrenSelector = 'tbody tr td:not(:nth-child(n+' + (settings.fixedColumns + 1) + '))'+ ',tbody tr td:not(:nth-child(n+' + (settings.fixedColumns + 1) + '))';
 		$firstTdChildren = $fixedBody.find(firstTdChildrenSelector)
 		    .each(function(index) {
 			helpers._fixHeightWithCss($(this), tableProps);
@@ -564,7 +564,7 @@
                     tableProp.tfoot[index] = $(this).width() + tableProp.border;
                 });
                 
-                $obj.find('tbody tr:first-child td').each(function(index) {
+                $obj.find('tbody tr:first-child td+th').each(function(index) {
                     tableProp.tbody[index] = $(this).width() + tableProp.border;
                 });
 
